@@ -1,18 +1,22 @@
-# 🚀 NexusTech Feed — Portal de Noticias Autónomo
+# 🦒 GiraTek Feed — Portal de Noticias Autónomo
 
-> **Portal automatizado de noticias sobre Inteligencia Artificial, Videojuegos y Tecnología.**  
+<p align="center">
+  <img src="./assets/giratek-logo.jpg" alt="GiraTek Logo" width="180" style="border-radius: 24px; box-shadow: 0 10px 30px rgba(6,182,212,0.3);" />
+</p>
+
+> **GiraTek: Portal automatizado de noticias sobre Inteligencia Artificial, Videojuegos y Tecnología.**  
 > Curado y sintetizado automáticamente por un agente en **n8n** potenciado por **Google Gemini AI**, desplegado en **GitHub Pages** con costo de infraestructura \$0.
 
 🌐 **Sitio Web en Vivo:** [https://king1angel.github.io/tech-news/](https://king1angel.github.io/tech-news/)  
-👤 **Autor:** [Ing. Angel Peña](https://king1angel.github.io/ANGEL-CV2026/)
+👤 **Autor:** [Ing. Angel Peña](https://github.com/King1Angel)
 
 ---
 
-## 🏛️ Arquitectura del Sistema
+## 🏛️ Arquitectura del Sistema GiraTek
 
 ```text
 ┌────────────────────────────────────────────────────────────────────────┐
-│                          1. AGENTE EN N8N                              │
+│                        1. MOTOR GIRATEK EN N8N                         │
 └────────────────────────────────────────────────────────────────────────┘
                                     │
   1. Cron Trigger                   │ Ejecuta cada 6 horas.
@@ -21,7 +25,7 @@
   2. RSS Feeds                      │ Ingesta de Xataka, TechCrunch, Eurogamer, GitHub.
          │                          │
          ▼                          │
-  3. Nodo IA (Gemini 2.5)           │ Traduce, sintetiza, categoriza y estructura en JSON.
+  3. Nodo IA (Gemini 2.5)           │ Traduce, sintetiza, categoriza y conserva enlaces directos.
          │                          │
          ▼                          │
   4. GitHub API (Contents)          │ Hace commit automático de data/noticias.json en el repo.
@@ -43,7 +47,9 @@
 
 ## ⚡ Características Principales
 
+- **🦒 Identidad GiraTek:** Diseño visual cyberpunk y futurista con logotipo oficial y paleta en acentos cian y esmeralda.
 - **🤖 Automatización Total:** Cero redacción manual. El agente n8n orquesta la lectura, procesamiento, traducción y publicación.
+- **🔗 Enlaces Directos a Noticias:** Cada artículo redirige exactamente a su noticia original y no a la portada o categoría genérica.
 - **💰 Costo de Infraestructura $0:** Sin base de datos relacional externa, sin servidores Node/Django de pago.
 - **🎨 UI Moderna & Responsive:** Diseñada con Tailwind CSS, glassmorphism oscuro, filtros reactivos por categoría (IA, Gaming, Hardware, Software), buscador en tiempo real y modal de lectura extendida.
 - **🔄 Anti-Caché Inteligente:** El frontend consulta `data/noticias.json?_t=[timestamp]` para reflejar los cambios de n8n al instante sin depender de la caché del navegador.
@@ -58,6 +64,8 @@ tech-news/
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml              # Despliegue automatizado a GitHub Pages
+├── assets/
+│   └── giratek-logo.jpg            # Logotipo oficial de GiraTek
 ├── data/
 │   └── noticias.json               # Almacén de datos JSON actualizado por n8n
 ├── index.html                      # Interfaz web responsiva en Tailwind CSS
@@ -88,6 +96,4 @@ Para que n8n pueda escribir en este repositorio:
 ## 👨‍💻 Autor
 
 **Ing. Angel Peña**
-- 💼 **CV Web:** [https://king1angel.github.io/ANGEL-CV2026/](https://king1angel.github.io/ANGEL-CV2026/)
 - 🐙 **GitHub:** [@King1Angel](https://github.com/King1Angel)
-- 📊 **Proyectos de Datos:** [Carrusel de Análisis de Datos](https://king1angel.github.io/carrusel-analisis-de-datos/)

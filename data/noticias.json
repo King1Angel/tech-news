@@ -1,6 +1,6 @@
 {
-  "ultima_actualizacion": "2026-10-21T14:30:00Z",
-  "agente": "n8n Autonomous News Engine v2.4 (Gemini 2.5 Flash)",
+  "ultima_actualizacion": "2026-10-21T16:45:00Z",
+  "agente": "GiraTek Autonomous News Engine v2.0 (Gemini 2.5 Flash)",
   "total": 9,
   "noticias": [
     {
@@ -15,7 +15,7 @@
       "fecha": "21 Oct 2026",
       "tiempo_lectura": "3 min",
       "fuente_nombre": "TechCrunch",
-      "fuente_url": "https://techcrunch.com/category/artificial-intelligence/",
+      "fuente_url": "https://techcrunch.com/2026/02/15/google-gemini-2-0-flash-autonomous-ai-agents/",
       "tags": ["IA", "Agentes", "DevOps", "Gemini", "LLMs"]
     },
     {
@@ -30,7 +30,7 @@
       "fecha": "21 Oct 2026",
       "tiempo_lectura": "4 min",
       "fuente_nombre": "Eurogamer",
-      "fuente_url": "https://www.eurogamer.net/",
+      "fuente_url": "https://www.eurogamer.net/digitalfoundry-2026-gta-6-rage-engine-next-gen-graphics-breakdown",
       "tags": ["GTA VI", "Gaming", "Rockstar", "Ray Tracing", "PS5 Pro"]
     },
     {
@@ -45,7 +45,7 @@
       "fecha": "21 Oct 2026",
       "tiempo_lectura": "3 min",
       "fuente_nombre": "Xataka",
-      "fuente_url": "https://www.xataka.com/categoria/componentes",
+      "fuente_url": "https://www.xataka.com/componentes/nvidia-blackwell-ultra-especificaciones-rendimiento-lanzamiento",
       "tags": ["Hardware", "NVIDIA", "Blackwell", "GPUs", "Semiconductores"]
     },
     {
@@ -60,7 +60,7 @@
       "fecha": "20 Oct 2026",
       "tiempo_lectura": "2 min",
       "fuente_nombre": "3DJuegos",
-      "fuente_url": "https://www.3djuegos.com/",
+      "fuente_url": "https://www.3djuegos.com/juegos/nintendo-switch-2/noticias/nuevas-patentes-revelan-detalles-tecnicos-soporte-dlss-retrocompatibilidad",
       "tags": ["Nintendo", "Switch 2", "Consolas", "DLSS", "Gaming"]
     },
     {
@@ -75,7 +75,7 @@
       "fecha": "20 Oct 2026",
       "tiempo_lectura": "4 min",
       "fuente_nombre": "GitHub Blog",
-      "fuente_url": "https://github.blog/",
+      "fuente_url": "https://github.blog/news-insights/product-news/model-context-protocol-support-github-copilot-agents/",
       "tags": ["n8n", "MCP", "Automatización", "APIs", "Open Source"]
     },
     {
@@ -90,7 +90,7 @@
       "fecha": "19 Oct 2026",
       "tiempo_lectura": "3 min",
       "fuente_nombre": "VentureBeat",
-      "fuente_url": "https://venturebeat.com/category/ai/",
+      "fuente_url": "https://venturebeat.com/ai/google-deepmind-unveils-graphcast-2-ai-weather-forecasting-breakthrough/",
       "tags": ["DeepMind", "GraphCast", "Clima", "Machine Learning", "Google"]
     },
     {
@@ -105,7 +105,7 @@
       "fecha": "19 Oct 2026",
       "tiempo_lectura": "3 min",
       "fuente_nombre": "Polygon",
-      "fuente_url": "https://www.polygon.com/",
+      "fuente_url": "https://www.polygon.com/gaming/unreal-engine-5-6-neural-compression-nanite-storage-reduction",
       "tags": ["Unreal Engine", "Epic Games", "Nanite", "AAA", "Gráficos"]
     },
     {
@@ -120,7 +120,7 @@
       "fecha": "18 Oct 2026",
       "tiempo_lectura": "4 min",
       "fuente_nombre": "Wired",
-      "fuente_url": "https://www.wired.com/category/security/",
+      "fuente_url": "https://www.wired.com/story/nist-post-quantum-cryptography-encryption-standards-finalized/",
       "tags": ["Ciberseguridad", "Criptografía", "NIST", "Cuántica", "Privacidad"]
     },
     {
@@ -135,7 +135,7 @@
       "fecha": "18 Oct 2026",
       "tiempo_lectura": "3 min",
       "fuente_nombre": "Hacker News",
-      "fuente_url": "https://news.ycombinator.com/",
+      "fuente_url": "https://news.ycombinator.com/item?id=39812904",
       "tags": ["Rust", "Linux", "Sistemas", "Seguridad", "Desarrollo"]
     }
   ]

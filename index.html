@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NexusTech Feed — Portal de Noticias Tech & IA | Ing. Angel Peña</title>
-  <meta name="description" content="Portal automatizado de noticias de Inteligencia Artificial, Videojuegos y Tecnología. Actualizado periódicamente mediante agentes autónomos n8n y Google Gemini.">
+  <title>GiraTek Feed — Portal de Noticias Tech, IA & Videojuegos | Ing. Angel Peña</title>
+  <meta name="description" content="GiraTek: Portal automatizado de noticias de Inteligencia Artificial, Videojuegos y Tecnología. Actualizado periódicamente mediante agentes autónomos n8n y Google Gemini.">
   <meta name="author" content="Ing. Angel Peña">
   
-  <!-- Open Graph -->
-  <meta property="og:title" content="NexusTech Feed — Portal de Noticias Tech & IA">
-  <meta property="og:description" content="Noticias curadas y sintetizadas automáticamente con agentes n8n y Gemini AI.">
+  <!-- Favicon & Open Graph -->
+  <link rel="icon" type="image/jpeg" href="./assets/giratek-logo.jpg">
+  <meta property="og:title" content="GiraTek Feed — Noticias Tech, IA & Gaming">
+  <meta property="og:description" content="Curaduría inteligente de tecnología y videojuegos automatizada con n8n y Gemini AI.">
+  <meta property="og:image" content="./assets/giratek-logo.jpg">
   <meta property="og:type" content="website">
 
   <!-- Tailwind CSS CDN -->
@@ -21,11 +23,13 @@
         extend: {
           colors: {
             brand: {
-              50: '#f0fdf4',
-              400: '#34d399',
-              500: '#10b981',
-              600: '#059669',
-              900: '#064e3b',
+              400: '#2dd4bf',
+              500: '#14b8a6',
+              600: '#0d9488',
+            },
+            cyan: {
+              400: '#22d3ee',
+              500: '#06b6d4',
             },
             dark: {
               base: '#080b11',
@@ -65,8 +69,8 @@
     }
 
     /* Ambient glow elements */
-    .glow-radial-emerald {
-      background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+    .glow-radial-cyan {
+      background: radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.15) 0%, transparent 70%);
     }
 
     .glow-radial-violet {
@@ -99,9 +103,9 @@
       border: 1px solid rgba(244, 63, 94, 0.3);
     }
     .badge-tecnologia {
-      background: rgba(16, 185, 129, 0.15);
-      color: #6ee7b7;
-      border: 1px solid rgba(16, 185, 129, 0.3);
+      background: rgba(20, 184, 166, 0.15);
+      color: #5eead4;
+      border: 1px solid rgba(20, 184, 166, 0.3);
     }
     .badge-software {
       background: rgba(59, 130, 246, 0.15);
@@ -123,31 +127,33 @@
     }
   </style>
 </head>
-<body class="min-h-screen bg-[#080b11] text-slate-200 antialiased relative selection:bg-emerald-500/30 selection:text-emerald-300">
+<body class="min-h-screen bg-[#080b11] text-slate-200 antialiased relative selection:bg-cyan-500/30 selection:text-cyan-300">
 
   <!-- Ambient Glow Backgrounds -->
   <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
-  <div class="fixed top-0 left-0 right-0 h-96 glow-radial-emerald pointer-events-none z-0"></div>
+  <div class="fixed top-0 left-0 right-0 h-96 glow-radial-cyan pointer-events-none z-0"></div>
   <div class="fixed top-32 right-0 w-[500px] h-[500px] glow-radial-violet pointer-events-none z-0"></div>
 
   <!-- NAVBAR -->
-  <header class="sticky top-0 z-40 backdrop-blur-md bg-[#080b11]/80 border-b border-white/[0.06]">
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-[#080b11]/85 border-b border-white/[0.06]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         
         <!-- Logo & Branding -->
         <div class="flex items-center space-x-3">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 p-[1px] shadow-lg shadow-emerald-500/20">
-            <div class="w-full h-full bg-[#0d121d] rounded-xl flex items-center justify-center">
-              <i data-lucide="cpu" class="w-5 h-5 text-emerald-400"></i>
-            </div>
+          <div class="relative w-10 h-10 rounded-xl overflow-hidden border border-cyan-400/40 shadow-lg shadow-cyan-500/25 group-hover:scale-105 transition-transform">
+            <img 
+              src="./assets/giratek-logo.jpg" 
+              alt="GiraTek Logo" 
+              class="w-full h-full object-cover"
+            >
           </div>
           <div>
             <div class="flex items-center space-x-2">
-              <span class="font-extrabold text-lg tracking-tight text-white">NEXUS<span class="text-emerald-400">TECH</span></span>
-              <span class="px-2 py-0.5 text-[10px] font-mono tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full font-semibold">FEED v2.0</span>
+              <span class="font-extrabold text-xl tracking-tight text-white">Gira<span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-300">Tek</span></span>
+              <span class="px-2 py-0.5 text-[10px] font-mono tracking-wider bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 rounded-full font-semibold">FEED v2.0</span>
             </div>
-            <p class="text-[11px] text-slate-400 hidden sm:block">Curaduría Autónoma con n8n & Gemini AI</p>
+            <p class="text-[11px] text-slate-400 hidden sm:block">AI & Insights Feed • Automatizado con n8n</p>
           </div>
         </div>
 
@@ -159,7 +165,7 @@
               type="text" 
               id="search-input" 
               placeholder="Buscar por titular, tecnología o palabras clave..."
-              class="w-full pl-10 pr-4 py-2 text-sm bg-white/[0.04] border border-white/[0.08] rounded-xl text-slate-200 placeholder-slate-400 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all duration-200"
+              class="w-full pl-10 pr-4 py-2 text-sm bg-white/[0.04] border border-white/[0.08] rounded-xl text-slate-200 placeholder-slate-400 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all duration-200"
             >
             <button id="clear-search" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white">
               <i data-lucide="x" class="w-4 h-4"></i>
@@ -172,10 +178,10 @@
           <!-- Architecture Modal Button -->
           <button 
             id="open-arch-btn"
-            class="flex items-center space-x-1.5 px-3 py-1.5 text-xs font-medium rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 transition-colors shadow-sm"
+            class="flex items-center space-x-1.5 px-3 py-1.5 text-xs font-medium rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 transition-colors shadow-sm"
             title="Ver arquitectura n8n + GitHub"
           >
-            <i data-lucide="workflow" class="w-3.5 h-3.5 text-emerald-400"></i>
+            <i data-lucide="workflow" class="w-3.5 h-3.5 text-cyan-400"></i>
             <span class="hidden sm:inline">Arquitectura</span>
           </button>
 
@@ -198,18 +204,6 @@
           >
             <i data-lucide="github" class="w-4 h-4"></i>
           </a>
-
-          <!-- CV Web Link -->
-          <a 
-            href="https://king1angel.github.io/ANGEL-CV2026/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="hidden lg:flex items-center space-x-1 px-3 py-1.5 text-xs font-semibold rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-amber-300 border border-amber-400/30 transition-all"
-            title="Perfil de Ing. Angel Peña"
-          >
-            <i data-lucide="user-check" class="w-3.5 h-3.5 text-amber-400"></i>
-            <span>Angel Peña</span>
-          </a>
         </div>
 
       </div>
@@ -222,7 +216,7 @@
             type="text" 
             id="search-input-mobile" 
             placeholder="Buscar noticias..."
-            class="w-full pl-10 pr-4 py-2 text-sm bg-white/[0.04] border border-white/[0.08] rounded-xl text-slate-200 placeholder-slate-400 focus:outline-none focus:border-emerald-500/50"
+            class="w-full pl-10 pr-4 py-2 text-sm bg-white/[0.04] border border-white/[0.08] rounded-xl text-slate-200 placeholder-slate-400 focus:outline-none focus:border-cyan-500/50"
           >
         </div>
       </div>
@@ -239,10 +233,10 @@
         <div class="flex items-center space-x-3">
           <div class="flex items-center space-x-1.5">
             <span class="relative flex h-2.5 w-2.5">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-500"></span>
             </span>
-            <span class="font-medium text-slate-300">Agente n8n: <span class="text-emerald-400 font-semibold" id="agent-name">En línea</span></span>
+            <span class="font-medium text-slate-300">Motor GiraTek: <span class="text-cyan-400 font-semibold" id="agent-name">En línea</span></span>
           </div>
           <span class="text-slate-600 hidden sm:inline">•</span>
           <div class="hidden sm:flex items-center space-x-1 text-slate-400">
@@ -254,7 +248,7 @@
         <!-- Metric badges -->
         <div class="flex items-center space-x-4 text-slate-400">
           <div class="flex items-center space-x-1">
-            <i data-lucide="newspaper" class="w-3.5 h-3.5 text-emerald-400"></i>
+            <i data-lucide="newspaper" class="w-3.5 h-3.5 text-cyan-400"></i>
             <span>Total: <strong class="text-white" id="total-articles-count">0</strong></span>
           </div>
           <div class="flex items-center space-x-1 hidden sm:flex">
@@ -278,12 +272,12 @@
     <div class="mb-8">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
         <div>
-          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 mb-3">
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-medium bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 mb-3">
             <i data-lucide="bot" class="w-3.5 h-3.5"></i>
-            <span>Inteligencia Editorial Automatizada</span>
+            <span>GiraTek AI & Insights Engine</span>
           </div>
           <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
-            Noticias Tech, <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">IA & Videojuegos</span>
+            Noticias Tech, <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400">IA & Videojuegos</span>
           </h1>
           <p class="mt-2 text-sm sm:text-base text-slate-400 max-w-2xl">
             Resúmenes inteligentes de la industria tecnológica, curados y estructurados en tiempo real por un flujo autónomo de n8n conectado a GitHub Pages.
@@ -294,7 +288,7 @@
         <div class="flex flex-wrap gap-1.5 sm:gap-2" id="category-filters">
           <button 
             data-category="all"
-            class="category-btn active px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200 bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20"
+            class="category-btn active px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200 bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20"
           >
             Todas
           </button>
@@ -328,16 +322,15 @@
 
     <!-- FEATURED NEWS (HERO CARD) -->
     <section id="featured-container" class="mb-10">
-      <!-- Injected dynamically via JS -->
       <div class="animate-pulse bg-[#0f1420] border border-white/[0.08] rounded-2xl h-80 w-full flex items-center justify-center text-slate-600">
-        <i data-lucide="loader-2" class="w-8 h-8 animate-spin text-emerald-500/40"></i>
+        <i data-lucide="loader-2" class="w-8 h-8 animate-spin text-cyan-500/40"></i>
       </div>
     </section>
 
     <!-- SECTION TITLE WITH ACTIVE FILTER INFO -->
     <div class="flex items-center justify-between mb-6 pb-3 border-b border-white/[0.06]">
       <div class="flex items-center space-x-2">
-        <i data-lucide="flame" class="w-4 h-4 text-emerald-400"></i>
+        <i data-lucide="flame" class="w-4 h-4 text-cyan-400"></i>
         <h2 class="text-lg font-bold text-white tracking-wide" id="section-title">Últimas Publicaciones</h2>
         <span class="text-xs text-slate-500" id="filter-status-text">(Todas las categorías)</span>
       </div>
@@ -348,7 +341,6 @@
 
     <!-- NEWS GRID -->
     <section id="news-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Loading Skeletons -->
       <div class="animate-pulse bg-[#0f1420] border border-white/[0.08] rounded-2xl h-96"></div>
       <div class="animate-pulse bg-[#0f1420] border border-white/[0.08] rounded-2xl h-96"></div>
       <div class="animate-pulse bg-[#0f1420] border border-white/[0.08] rounded-2xl h-96"></div>
@@ -363,7 +355,7 @@
       <p class="text-sm text-slate-400 mt-1 max-w-sm mx-auto">
         Prueba con otros términos de búsqueda o selecciona otra categoría.
       </p>
-      <button id="reset-filter-btn" class="mt-4 px-4 py-2 text-xs font-semibold rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors">
+      <button id="reset-filter-btn" class="mt-4 px-4 py-2 text-xs font-semibold rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 hover:bg-cyan-500/20 transition-colors">
         Restablecer filtros
       </button>
     </div>
@@ -372,20 +364,18 @@
 
   <!-- ARCHITECTURE EXPLAINER MODAL -->
   <div id="arch-modal" class="fixed inset-0 z-50 hidden">
-    <!-- Backdrop -->
     <div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" id="close-arch-backdrop"></div>
     
-    <!-- Content Box -->
     <div class="relative z-10 max-w-3xl mx-auto my-8 p-4 sm:p-6 max-h-[90vh] overflow-y-auto">
       <div class="bg-[#0f1420] border border-white/[0.1] rounded-2xl shadow-2xl p-6 sm:p-8">
         
         <div class="flex items-start justify-between pb-4 border-b border-white/[0.08]">
           <div class="flex items-center space-x-3">
-            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-              <i data-lucide="cpu" class="w-5 h-5"></i>
+            <div class="w-10 h-10 rounded-xl overflow-hidden border border-cyan-500/40">
+              <img src="./assets/giratek-logo.jpg" alt="GiraTek" class="w-full h-full object-cover">
             </div>
             <div>
-              <h3 class="text-xl font-bold text-white">Arquitectura del Sistema Autónomo</h3>
+              <h3 class="text-xl font-bold text-white">Arquitectura GiraTek</h3>
               <p class="text-xs text-slate-400">Flujo n8n + Gemini AI + GitHub Pages CDN</p>
             </div>
           </div>
@@ -404,10 +394,10 @@
             <div>
               <h4 class="text-sm font-semibold text-white flex items-center gap-2">
                 <span>Cron Trigger en n8n</span>
-                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-500/10 text-blue-300">Cada 4-6 Horas</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-500/10 text-blue-300">Cada 6 Horas</span>
               </h4>
               <p class="text-xs text-slate-400 mt-1">
-                Un temporizador en n8n inicia la ejecución periódica para consultar los feeds RSS más influyentes (Xataka, TechCrunch, 3DJuegos, Eurogamer, GitHub Blog).
+                Un temporizador en n8n inicia la ejecución periódica para consultar los feeds RSS más influyentes (Xataka, TechCrunch, Eurogamer, GitHub Blog).
               </p>
             </div>
           </div>
@@ -422,34 +412,34 @@
                 <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-violet-500/10 text-violet-300">Gemini 2.5 Flash</span>
               </h4>
               <p class="text-xs text-slate-400 mt-1">
-                La IA analiza el contenido, traduce artículos del inglés si es necesario, genera resúmenes atractivos de 2 párrafos, clasifica por categoría y estructura el schema JSON limpio.
+                La IA analiza el contenido, traduce artículos del inglés, genera resúmenes atractivos de 2 párrafos, clasifica por categoría y preserva el enlace directo a la noticia original.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4 p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+            <div class="w-8 h-8 rounded-lg bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center text-cyan-400 flex-shrink-0 font-mono text-sm font-bold">
+              3
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold text-white flex items-center gap-2">
+                <span>Commit Automático a GitHub API</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300">PUT /contents/data/noticias.json</span>
+              </h4>
+              <p class="text-xs text-slate-400 mt-1">
+                n8n realiza una petición HTTP autenticada con un Personal Access Token (PAT) al repositorio <code class="text-cyan-300 bg-white/[0.04] px-1 py-0.5 rounded">King1Angel/tech-news</code>, actualizando el archivo <code class="text-cyan-300">data/noticias.json</code> sin requerir bases de datos externas.
               </p>
             </div>
           </div>
 
           <div class="flex items-start space-x-4 p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
             <div class="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 flex-shrink-0 font-mono text-sm font-bold">
-              3
-            </div>
-            <div>
-              <h4 class="text-sm font-semibold text-white flex items-center gap-2">
-                <span>Commit Automático a GitHub API</span>
-                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300">PUT /contents/data/noticias.json</span>
-              </h4>
-              <p class="text-xs text-slate-400 mt-1">
-                n8n realiza una petición HTTP autenticada con un Personal Access Token (PAT) al repositorio <code class="text-emerald-300 bg-white/[0.04] px-1 py-0.5 rounded">King1Angel/tech-news</code>, actualizando el archivo <code class="text-emerald-300">data/noticias.json</code> sin requerir bases de datos externas.
-              </p>
-            </div>
-          </div>
-
-          <div class="flex items-start space-x-4 p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-            <div class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 flex-shrink-0 font-mono text-sm font-bold">
               4
             </div>
             <div>
               <h4 class="text-sm font-semibold text-white flex items-center gap-2">
                 <span>GitHub Pages + Client-Side Fetch</span>
-                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-300">Costo $0 / Alta Velocidad</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300">Costo $0 / CDN Global</span>
               </h4>
               <p class="text-xs text-slate-400 mt-1">
                 Los usuarios reciben una interfaz ultrarrápida que consulta el JSON con timestamp anti-caché. Todo se sirve vía la CDN global de GitHub con latencia mínima y costo de infraestructura cero.
@@ -485,37 +475,29 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <div class="flex flex-col md:flex-row items-center justify-between gap-6">
         
+        <!-- Logo & Brand info -->
         <div class="flex items-center space-x-3">
-          <div class="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-            <i data-lucide="terminal" class="w-4 h-4"></i>
+          <div class="w-8 h-8 rounded-lg overflow-hidden border border-cyan-500/40">
+            <img src="./assets/giratek-logo.jpg" alt="GiraTek" class="w-full h-full object-cover">
           </div>
           <div>
-            <p class="text-sm font-semibold text-white">NexusTech Feed</p>
-            <p class="text-xs text-slate-500">Diseñado por <a href="https://king1angel.github.io/ANGEL-CV2026/" target="_blank" class="text-slate-400 hover:text-emerald-400 underline decoration-slate-600">Ing. Angel Peña</a> • 2026</p>
+            <p class="text-sm font-semibold text-white">GiraTek Feed</p>
+            <p class="text-xs text-slate-500">Desarrollado por <span class="text-slate-300 font-medium">Ing. Angel Peña</span> • 2026</p>
           </div>
         </div>
 
-        <!-- Links -->
+        <!-- Links & Info -->
         <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-400">
-          <a href="https://king1angel.github.io/ANGEL-CV2026/" target="_blank" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5">
-            <i data-lucide="file-user" class="w-3.5 h-3.5"></i>
-            <span>CV Web</span>
-          </a>
-          <span class="text-slate-700">•</span>
-          <a href="https://king1angel.github.io/carrusel-analisis-de-datos/" target="_blank" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5">
-            <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
-            <span>Carrusel de Datos</span>
-          </a>
-          <span class="text-slate-700">•</span>
-          <a href="https://github.com/King1Angel/tech-news" target="_blank" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+          <a href="https://github.com/King1Angel/tech-news" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
             <i data-lucide="github" class="w-3.5 h-3.5"></i>
             <span>Código Fuente</span>
           </a>
           <span class="text-slate-700">•</span>
-          <a href="https://n8n.io" target="_blank" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5">
-            <i data-lucide="zap" class="w-3.5 h-3.5"></i>
-            <span>Potenciado por n8n</span>
-          </a>
+          <!-- Pure text for powered by n8n (no link) -->
+          <span class="flex items-center gap-1.5 text-slate-400 cursor-default select-none">
+            <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-400"></i>
+            <span>Potenciado con n8n</span>
+          </span>
         </div>
 
       </div>
@@ -561,7 +543,6 @@
         
         const data = await res.json();
         
-        // Support both schema types: { noticias: [...] } or direct [...]
         allArticles = Array.isArray(data) ? data : (data.noticias || data.articles || []);
         
         // Update header metadata
@@ -575,7 +556,7 @@
         }
 
         if (data.agente) {
-          document.getElementById('agent-name').textContent = 'Activo (' + (data.agente.includes('Gemini') ? 'Gemini AI' : 'n8n') + ')';
+          document.getElementById('agent-name').textContent = 'Activo (' + (data.agente.includes('Gemini') ? 'Gemini AI' : 'GiraTek Engine') + ')';
         }
 
         document.getElementById('total-articles-count').textContent = allArticles.length;
@@ -593,7 +574,6 @@
 
     // Render entire view
     function renderApp() {
-      // 1. Filter articles
       const filtered = allArticles.filter(art => {
         const matchCategory = (currentCategory === 'all') || (art.categoria_slug === currentCategory);
         const query = searchQuery.toLowerCase().trim();
@@ -609,18 +589,14 @@
         return matchCategory && matchQuery;
       });
 
-      // Update visible count
       document.getElementById('visible-count').textContent = filtered.length;
 
-      // 2. Render Hero (Featured article)
       const featured = filtered.find(a => a.destacada) || filtered[0];
       renderHero(featured);
 
-      // 3. Render Grid (Excluding the hero if desired, or all remaining)
       const gridArticles = filtered.filter(a => a !== featured);
       renderGrid(gridArticles.length > 0 ? gridArticles : (filtered.length > 1 ? filtered : []));
 
-      // 4. Handle Empty state
       const noResultsEl = document.getElementById('no-results');
       const newsGridEl = document.getElementById('news-grid');
       const featuredEl = document.getElementById('featured-container');
@@ -635,7 +611,6 @@
         featuredEl.classList.remove('hidden');
       }
 
-      // Re-init lucide icons for newly rendered content
       if (window.lucide) {
         lucide.createIcons();
       }
@@ -693,10 +668,10 @@
                     ${article.tiempo_lectura || '3 min'}
                   </span>
                   <span>•</span>
-                  <span class="text-emerald-400 font-medium">${article.fuente_nombre || 'Fuente Tech'}</span>
+                  <span class="text-cyan-400 font-medium">${article.fuente_nombre || 'Fuente Tech'}</span>
                 </div>
 
-                <h2 class="text-xl sm:text-2xl font-extrabold text-white leading-snug tracking-tight hover:text-emerald-300 transition-colors cursor-pointer" onclick="openArticleModal('${article.id}')">
+                <h2 class="text-xl sm:text-2xl font-extrabold text-white leading-snug tracking-tight hover:text-cyan-300 transition-colors cursor-pointer" onclick="openArticleModal('${article.id}')">
                   ${article.titulo}
                 </h2>
 
@@ -718,20 +693,22 @@
               <div class="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between">
                 <button 
                   onclick="openArticleModal('${article.id}')"
-                  class="inline-flex items-center space-x-2 text-xs font-semibold text-emerald-400 hover:text-emerald-300 group/btn transition-colors"
+                  class="inline-flex items-center space-x-2 text-xs font-semibold text-cyan-400 hover:text-cyan-300 group/btn transition-colors"
                 >
                   <span>Leer síntesis completa</span>
                   <i data-lucide="arrow-right" class="w-3.5 h-3.5 transform group-hover/btn:translate-x-1 transition-transform"></i>
                 </button>
 
+                <!-- Direct specific link to original article -->
                 <a 
                   href="${article.fuente_url}" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  class="p-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-slate-400 hover:text-white border border-white/[0.08] transition-colors"
-                  title="Abrir fuente original"
+                  class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-white/[0.04] hover:bg-cyan-500/10 text-slate-300 hover:text-cyan-300 border border-white/[0.08] hover:border-cyan-500/30 transition-all text-xs font-medium"
+                  title="Abrir artículo original en ${article.fuente_nombre || 'la fuente'}"
                 >
-                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                  <span>Ir a la noticia</span>
+                  <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
                 </a>
               </div>
 
@@ -757,7 +734,7 @@
         const imgSrc = article.imagen || fallbackImg;
 
         return `
-          <article class="flex flex-col rounded-2xl overflow-hidden bg-[#0f1420] border border-white/[0.08] hover:border-emerald-500/30 hover:bg-[#131929] transition-all duration-300 group shadow-lg">
+          <article class="flex flex-col rounded-2xl overflow-hidden bg-[#0f1420] border border-white/[0.08] hover:border-cyan-500/30 hover:bg-[#131929] transition-all duration-300 group shadow-lg">
             
             <!-- Thumbnail Image -->
             <div class="relative h-48 overflow-hidden bg-slate-900 cursor-pointer" onclick="openArticleModal('${article.id}')">
@@ -790,13 +767,13 @@
                 
                 <!-- Meta Info -->
                 <div class="flex items-center justify-between text-xs text-slate-400 mb-2.5">
-                  <span class="font-medium text-emerald-400 truncate max-w-[140px]">${article.fuente_nombre || 'Tech Source'}</span>
+                  <span class="font-medium text-cyan-400 truncate max-w-[140px]">${article.fuente_nombre || 'Tech Source'}</span>
                   <span>${formatDate(article.fecha)}</span>
                 </div>
 
                 <!-- Title -->
                 <h3 
-                  class="text-base font-bold text-white group-hover:text-emerald-300 transition-colors leading-snug line-clamp-2 cursor-pointer"
+                  class="text-base font-bold text-white group-hover:text-cyan-300 transition-colors leading-snug line-clamp-2 cursor-pointer"
                   onclick="openArticleModal('${article.id}')"
                 >
                   ${article.titulo}
@@ -821,19 +798,20 @@
                     `).join('')}
                   </div>
 
-                  <div class="flex items-center space-x-1">
+                  <div class="flex items-center space-x-1.5">
                     <button 
                       onclick="openArticleModal('${article.id}')" 
-                      class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 transition-colors"
+                      class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 transition-colors"
                     >
                       Detalle
                     </button>
+                    <!-- Direct specific link to original article -->
                     <a 
                       href="${article.fuente_url}" 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      class="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-white/[0.06] transition-colors"
-                      title="Ir a fuente original"
+                      class="p-1.5 text-slate-400 hover:text-cyan-300 hover:bg-cyan-500/10 rounded-lg border border-transparent hover:border-cyan-500/20 transition-all"
+                      title="Abrir artículo original en ${article.fuente_nombre || 'la fuente'}"
                     >
                       <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
                     </a>
@@ -880,7 +858,7 @@
         </div>
 
         <div class="p-6 sm:p-8">
-          <div class="flex items-center space-x-2 text-xs text-emerald-400 font-semibold mb-2">
+          <div class="flex items-center space-x-2 text-xs text-cyan-400 font-semibold mb-2">
             <i data-lucide="newspaper" class="w-3.5 h-3.5"></i>
             <span>Fuente: ${article.fuente_nombre || 'Medio Tecnológico'}</span>
           </div>
@@ -892,7 +870,7 @@
           <div class="mt-4 p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
             <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
               <i data-lucide="sparkles" class="w-3.5 h-3.5 text-violet-400"></i>
-              Síntesis Inteligente (Gemini AI)
+              Síntesis Inteligente (GiraTek IA)
             </h4>
             <p class="text-sm text-slate-200 leading-relaxed">
               ${article.resumen}
@@ -908,7 +886,7 @@
             </div>
           ` : ''}
 
-          <!-- Tags -->
+          <!-- Tags and Direct Article Link CTA -->
           <div class="mt-6 pt-4 border-t border-white/[0.08] flex flex-wrap items-center justify-between gap-3">
             <div class="flex flex-wrap gap-1.5">
               ${(article.tags || []).map(t => `
@@ -918,13 +896,14 @@
               `).join('')}
             </div>
 
+            <!-- Direct specific URL to original article -->
             <a 
               href="${article.fuente_url}" 
               target="_blank" 
               rel="noopener noreferrer"
-              class="inline-flex items-center space-x-2 px-4 py-2 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-colors shadow-lg shadow-emerald-500/20"
+              class="inline-flex items-center space-x-2 px-4 py-2 rounded-xl text-xs font-bold bg-cyan-500 hover:bg-cyan-400 text-slate-950 transition-colors shadow-lg shadow-cyan-500/25"
             >
-              <span>Leer artículo original</span>
+              <span>Leer artículo original en ${article.fuente_nombre || 'la web'}</span>
               <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
             </a>
           </div>
@@ -955,7 +934,7 @@
           <p class="text-sm text-slate-400 mt-1 max-w-md mx-auto">
             No se pudo leer el archivo de noticias JSON. Asegúrate de que el archivo existe en el repositorio o recarga la página.
           </p>
-          <button onclick="loadNews()" class="mt-4 px-4 py-2 text-xs font-semibold rounded-xl bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-colors">
+          <button onclick="loadNews()" class="mt-4 px-4 py-2 text-xs font-semibold rounded-xl bg-cyan-500 text-slate-950 hover:bg-cyan-400 transition-colors">
             Reintentar sincronización
           </button>
         </div>
@@ -970,16 +949,15 @@
       document.querySelectorAll('.category-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
           document.querySelectorAll('.category-btn').forEach(b => {
-            b.classList.remove('active', 'bg-emerald-500', 'text-slate-950', 'shadow-md', 'shadow-emerald-500/20');
+            b.classList.remove('active', 'bg-cyan-500', 'text-slate-950', 'shadow-md', 'shadow-cyan-500/20');
             b.classList.add('bg-white/[0.05]', 'text-slate-300', 'border', 'border-white/[0.08]');
           });
 
-          btn.classList.add('active', 'bg-emerald-500', 'text-slate-950', 'shadow-md', 'shadow-emerald-500/20');
+          btn.classList.add('active', 'bg-cyan-500', 'text-slate-950', 'shadow-md', 'shadow-cyan-500/20');
           btn.classList.remove('bg-white/[0.05]', 'text-slate-300', 'border-white/[0.08]');
 
           currentCategory = btn.getAttribute('data-category');
           
-          // Update status text
           const catLabels = {
             'all': '(Todas las categorías)',
             'ia': '(Inteligencia Artificial)',
