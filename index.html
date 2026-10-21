@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="es" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexusTech Feed — Portal de Noticias Tech & IA | Ing. Angel Peña</title>
+  <meta name="description" content="Portal automatizado de noticias de Inteligencia Artificial, Videojuegos y Tecnología. Actualizado periódicamente mediante agentes autónomos n8n y Google Gemini.">
+  <meta name="author" content="Ing. Angel Peña">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="NexusTech Feed — Portal de Noticias Tech & IA">
+  <meta property="og:description" content="Noticias curadas y sintetizadas automáticamente con agentes n8n y Gemini AI.">
+  <meta property="og:type" content="website">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              900: '#064e3b',
+            },
+            dark: {
+              base: '#080b11',
+              card: '#0f1420',
+              cardHover: '#151b2b',
+              border: 'rgba(255, 255, 255, 0.08)',
+              glass: 'rgba(15, 20, 32, 0.75)'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Lucide Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #080b11;
+      color: #e2e8f0;
+    }
+    
+    /* Subtle grid pattern */
+    .bg-grid {
+      background-size: 36px 36px;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+
+    /* Ambient glow elements */
+    .glow-radial-emerald {
+      background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+    }
+
+    .glow-radial-violet {
+      background: radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.10) 0%, transparent 60%);
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #080b11;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1f293d;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #374151;
+    }
+
+    .badge-ia {
+      background: rgba(139, 92, 246, 0.15);
+      color: #c4b5fd;
+      border: 1px solid rgba(139, 92, 246, 0.3);
+    }
+    .badge-gaming {
+      background: rgba(244, 63, 94, 0.15);
+      color: #fda4af;
+      border: 1px solid rgba(244, 63, 94, 0.3);
+    }
+    .badge-tecnologia {
+      background: rgba(16, 185, 129, 0.15);
+      color: #6ee7b7;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .badge-software {
+      background: rgba(59, 130, 246, 0.15);
+      color: #93c5fd;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .line-clamp-3 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#080b11] text-slate-200 antialiased relative selection:bg-emerald-500/30 selection:text-emerald-300">
+
+  <!-- Ambient Glow Backgrounds -->
+  <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
+  <div class="fixed top-0 left-0 right-0 h-96 glow-radial-emerald pointer-events-none z-0"></div>
+  <div class="fixed top-32 right-0 w-[500px] h-[500px] glow-radial-violet pointer-events-none z-0"></div>
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-[#080b11]/80 border-b border-white/[0.06]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        
+        <!-- Logo & Branding -->
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 p-[1px] shadow-lg shadow-emerald-500/20">
+            <div class="w-full h-full bg-[#0d121d] rounded-xl flex items-center justify-center">
+              <i data-lucide="cpu" class="w-5 h-5 text-emerald-400"></i>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="font-extrabold text-lg tracking-tight text-white">NEXUS<span class="text-emerald-400">TECH</span></span>
+              <span class="px-2 py-0.5 text-[10px] font-mono tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full font-semibold">FEED v2.0</span>
+            </div>
+            <p class="text-[11px] text-slate-400 hidden sm:block">Curaduría Autónoma con n8n & Gemini AI</p>
+          </div>
+        </div>
+
+        <!-- Search Bar (Desktop) -->
+        <div class="hidden md:flex flex-1 max-w-md mx-8">
+          <div class="relative w-full">
+            <i data-lucide="search" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"></i>
+            <input 
+              type="text" 
+              id="search-input" 
+              placeholder="Buscar por titular, tecnología o palabras clave..."
+              class="w-full pl-10 pr-4 py-2 text-sm bg-white/[0.04] border border-white/[0.08] rounded-xl text-slate-200 placeholder-slate-400 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all duration-200"
+            >
+            <button id="clear-search" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white">
+              <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Action Buttons -->
+        <div class="flex items-center space-x-2 sm:space-x-3">
+          <!-- Architecture Modal Button -->
+          <button 
+            id="open-arch-btn"
+            class="flex items-center space-x-1.5 px-3 py-1.5 text-xs font-medium rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 transition-colors shadow-sm"
+            title="Ver arquitectura n8n + GitHub"
+          >
+            <i data-lucide="workflow" class="w-3.5 h-3.5 text-emerald-400"></i>
+            <span class="hidden sm:inline">Arquitectura</span>
+          </button>
+
+          <!-- Refresh Data Button -->
+          <button 
+            id="refresh-btn" 
+            class="p-2 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-slate-300 hover:text-white border border-white/[0.08] transition-colors"
+            title="Recargar noticias"
+          >
+            <i data-lucide="refresh-cw" class="w-4 h-4" id="refresh-icon"></i>
+          </button>
+
+          <!-- GitHub Repo Link -->
+          <a 
+            href="https://github.com/King1Angel/tech-news" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="p-2 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-slate-300 hover:text-white border border-white/[0.08] transition-colors"
+            title="Ver repositorio en GitHub"
+          >
+            <i data-lucide="github" class="w-4 h-4"></i>
+          </a>
+
+          <!-- CV Web Link -->
+          <a 
+            href="https://king1angel.github.io/ANGEL-CV2026/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="hidden lg:flex items-center space-x-1 px-3 py-1.5 text-xs font-semibold rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-amber-300 border border-amber-400/30 transition-all"
+            title="Perfil de Ing. Angel Peña"
+          >
+            <i data-lucide="user-check" class="w-3.5 h-3.5 text-amber-400"></i>
+            <span>Angel Peña</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Mobile Search Bar -->
+      <div class="py-2.5 md:hidden border-t border-white/[0.04]">
+        <div class="relative w-full">
+          <i data-lucide="search" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"></i>
+          <input 
+            type="text" 
+            id="search-input-mobile" 
+            placeholder="Buscar noticias..."
+            class="w-full pl-10 pr-4 py-2 text-sm bg-white/[0.04] border border-white/[0.08] rounded-xl text-slate-200 placeholder-slate-400 focus:outline-none focus:border-emerald-500/50"
+          >
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- LIVE STATUS BAR -->
+  <section class="relative z-10 border-b border-white/[0.06] bg-[#0c101a]/70 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+      <div class="flex flex-wrap items-center justify-between gap-y-2 text-xs">
+        
+        <!-- Engine Status -->
+        <div class="flex items-center space-x-3">
+          <div class="flex items-center space-x-1.5">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <span class="font-medium text-slate-300">Agente n8n: <span class="text-emerald-400 font-semibold" id="agent-name">En línea</span></span>
+          </div>
+          <span class="text-slate-600 hidden sm:inline">•</span>
+          <div class="hidden sm:flex items-center space-x-1 text-slate-400">
+            <i data-lucide="clock" class="w-3.5 h-3.5 text-slate-500"></i>
+            <span>Sincronizado: <span class="text-slate-200 font-medium" id="last-update">Cargando...</span></span>
+          </div>
+        </div>
+
+        <!-- Metric badges -->
+        <div class="flex items-center space-x-4 text-slate-400">
+          <div class="flex items-center space-x-1">
+            <i data-lucide="newspaper" class="w-3.5 h-3.5 text-emerald-400"></i>
+            <span>Total: <strong class="text-white" id="total-articles-count">0</strong></span>
+          </div>
+          <div class="flex items-center space-x-1 hidden sm:flex">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-violet-400"></i>
+            <span>IA: <span class="text-violet-300 font-medium">Gemini 2.5 Flash</span></span>
+          </div>
+          <div class="flex items-center space-x-1 hidden md:flex">
+            <i data-lucide="git-commit" class="w-3.5 h-3.5 text-blue-400"></i>
+            <span>Sync: <span class="text-blue-300 font-medium">GitHub API / JSON</span></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+    <!-- HERO HEADER -->
+    <div class="mb-8">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div>
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 mb-3">
+            <i data-lucide="bot" class="w-3.5 h-3.5"></i>
+            <span>Inteligencia Editorial Automatizada</span>
+          </div>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+            Noticias Tech, <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">IA & Videojuegos</span>
+          </h1>
+          <p class="mt-2 text-sm sm:text-base text-slate-400 max-w-2xl">
+            Resúmenes inteligentes de la industria tecnológica, curados y estructurados en tiempo real por un flujo autónomo de n8n conectado a GitHub Pages.
+          </p>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="flex flex-wrap gap-1.5 sm:gap-2" id="category-filters">
+          <button 
+            data-category="all"
+            class="category-btn active px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200 bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20"
+          >
+            Todas
+          </button>
+          <button 
+            data-category="ia"
+            class="category-btn px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all duration-200 bg-white/[0.05] hover:bg-white/[0.1] text-slate-300 hover:text-white border border-white/[0.08]"
+          >
+            🤖 IA
+          </button>
+          <button 
+            data-category="gaming"
+            class="category-btn px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all duration-200 bg-white/[0.05] hover:bg-white/[0.1] text-slate-300 hover:text-white border border-white/[0.08]"
+          >
+            🎮 Videojuegos
+          </button>
+          <button 
+            data-category="tecnologia"
+            class="category-btn px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all duration-200 bg-white/[0.05] hover:bg-white/[0.1] text-slate-300 hover:text-white border border-white/[0.08]"
+          >
+            ⚡ Hardware
+          </button>
+          <button 
+            data-category="software"
+            class="category-btn px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all duration-200 bg-white/[0.05] hover:bg-white/[0.1] text-slate-300 hover:text-white border border-white/[0.08]"
+          >
+            💻 Software
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURED NEWS (HERO CARD) -->
+    <section id="featured-container" class="mb-10">
+      <!-- Injected dynamically via JS -->
+      <div class="animate-pulse bg-[#0f1420] border border-white/[0.08] rounded-2xl h-80 w-full flex items-center justify-center text-slate-600">
+        <i data-lucide="loader-2" class="w-8 h-8 animate-spin text-emerald-500/40"></i>
+      </div>
+    </section>
+
+    <!-- SECTION TITLE WITH ACTIVE FILTER INFO -->
+    <div class="flex items-center justify-between mb-6 pb-3 border-b border-white/[0.06]">
+      <div class="flex items-center space-x-2">
+        <i data-lucide="flame" class="w-4 h-4 text-emerald-400"></i>
+        <h2 class="text-lg font-bold text-white tracking-wide" id="section-title">Últimas Publicaciones</h2>
+        <span class="text-xs text-slate-500" id="filter-status-text">(Todas las categorías)</span>
+      </div>
+      <div class="text-xs text-slate-400">
+        Mostrando <span class="font-bold text-white" id="visible-count">0</span> artículos
+      </div>
+    </div>
+
+    <!-- NEWS GRID -->
+    <section id="news-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Loading Skeletons -->
+      <div class="animate-pulse bg-[#0f1420] border border-white/[0.08] rounded-2xl h-96"></div>
+      <div class="animate-pulse bg-[#0f1420] border border-white/[0.08] rounded-2xl h-96"></div>
+      <div class="animate-pulse bg-[#0f1420] border border-white/[0.08] rounded-2xl h-96"></div>
+    </section>
+
+    <!-- EMPTY / NO RESULTS STATE -->
+    <div id="no-results" class="hidden text-center py-16 px-4">
+      <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-slate-500">
+        <i data-lucide="search-x" class="w-8 h-8"></i>
+      </div>
+      <h3 class="text-lg font-semibold text-white">No se encontraron noticias</h3>
+      <p class="text-sm text-slate-400 mt-1 max-w-sm mx-auto">
+        Prueba con otros términos de búsqueda o selecciona otra categoría.
+      </p>
+      <button id="reset-filter-btn" class="mt-4 px-4 py-2 text-xs font-semibold rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors">
+        Restablecer filtros
+      </button>
+    </div>
+
+  </main>
+
+  <!-- ARCHITECTURE EXPLAINER MODAL -->
+  <div id="arch-modal" class="fixed inset-0 z-50 hidden">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" id="close-arch-backdrop"></div>
+    
+    <!-- Content Box -->
+    <div class="relative z-10 max-w-3xl mx-auto my-8 p-4 sm:p-6 max-h-[90vh] overflow-y-auto">
+      <div class="bg-[#0f1420] border border-white/[0.1] rounded-2xl shadow-2xl p-6 sm:p-8">
+        
+        <div class="flex items-start justify-between pb-4 border-b border-white/[0.08]">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+              <i data-lucide="cpu" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white">Arquitectura del Sistema Autónomo</h3>
+              <p class="text-xs text-slate-400">Flujo n8n + Gemini AI + GitHub Pages CDN</p>
+            </div>
+          </div>
+          <button id="close-arch-btn" class="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-white/[0.05]">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <!-- Workflow Diagram Steps -->
+        <div class="mt-6 space-y-4">
+          
+          <div class="flex items-start space-x-4 p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+            <div class="w-8 h-8 rounded-lg bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 flex-shrink-0 font-mono text-sm font-bold">
+              1
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold text-white flex items-center gap-2">
+                <span>Cron Trigger en n8n</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-500/10 text-blue-300">Cada 4-6 Horas</span>
+              </h4>
+              <p class="text-xs text-slate-400 mt-1">
+                Un temporizador en n8n inicia la ejecución periódica para consultar los feeds RSS más influyentes (Xataka, TechCrunch, 3DJuegos, Eurogamer, GitHub Blog).
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4 p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+            <div class="w-8 h-8 rounded-lg bg-violet-500/20 border border-violet-500/30 flex items-center justify-center text-violet-400 flex-shrink-0 font-mono text-sm font-bold">
+              2
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold text-white flex items-center gap-2">
+                <span>Nodo IA Gemini (LLM Agent)</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-violet-500/10 text-violet-300">Gemini 2.5 Flash</span>
+              </h4>
+              <p class="text-xs text-slate-400 mt-1">
+                La IA analiza el contenido, traduce artículos del inglés si es necesario, genera resúmenes atractivos de 2 párrafos, clasifica por categoría y estructura el schema JSON limpio.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4 p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+            <div class="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 flex-shrink-0 font-mono text-sm font-bold">
+              3
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold text-white flex items-center gap-2">
+                <span>Commit Automático a GitHub API</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300">PUT /contents/data/noticias.json</span>
+              </h4>
+              <p class="text-xs text-slate-400 mt-1">
+                n8n realiza una petición HTTP autenticada con un Personal Access Token (PAT) al repositorio <code class="text-emerald-300 bg-white/[0.04] px-1 py-0.5 rounded">King1Angel/tech-news</code>, actualizando el archivo <code class="text-emerald-300">data/noticias.json</code> sin requerir bases de datos externas.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4 p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+            <div class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 flex-shrink-0 font-mono text-sm font-bold">
+              4
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold text-white flex items-center gap-2">
+                <span>GitHub Pages + Client-Side Fetch</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-300">Costo $0 / Alta Velocidad</span>
+              </h4>
+              <p class="text-xs text-slate-400 mt-1">
+                Los usuarios reciben una interfaz ultrarrápida que consulta el JSON con timestamp anti-caché. Todo se sirve vía la CDN global de GitHub con latencia mínima y costo de infraestructura cero.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-white/[0.08] flex items-center justify-between">
+          <span class="text-xs text-slate-400">Desarrollado y automatizado por <strong class="text-white">Ing. Angel Peña</strong></span>
+          <button id="close-arch-btn-footer" class="px-4 py-2 text-xs font-semibold rounded-xl bg-white/[0.06] hover:bg-white/[0.1] text-white transition-colors">
+            Cerrar
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE DETAIL MODAL -->
+  <div id="article-modal" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black/85 backdrop-blur-md transition-opacity" id="close-article-backdrop"></div>
+    <div class="relative z-10 max-w-2xl mx-auto my-6 p-4 sm:p-6 max-h-[92vh] overflow-y-auto">
+      <div class="bg-[#0f1420] border border-white/[0.1] rounded-2xl shadow-2xl overflow-hidden" id="article-modal-content">
+        <!-- Injected dynamically via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="relative z-10 border-t border-white/[0.08] bg-[#05080e] mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+            <i data-lucide="terminal" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-white">NexusTech Feed</p>
+            <p class="text-xs text-slate-500">Diseñado por <a href="https://king1angel.github.io/ANGEL-CV2026/" target="_blank" class="text-slate-400 hover:text-emerald-400 underline decoration-slate-600">Ing. Angel Peña</a> • 2026</p>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-400">
+          <a href="https://king1angel.github.io/ANGEL-CV2026/" target="_blank" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+            <i data-lucide="file-user" class="w-3.5 h-3.5"></i>
+            <span>CV Web</span>
+          </a>
+          <span class="text-slate-700">•</span>
+          <a href="https://king1angel.github.io/carrusel-analisis-de-datos/" target="_blank" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+            <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+            <span>Carrusel de Datos</span>
+          </a>
+          <span class="text-slate-700">•</span>
+          <a href="https://github.com/King1Angel/tech-news" target="_blank" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+            <i data-lucide="github" class="w-3.5 h-3.5"></i>
+            <span>Código Fuente</span>
+          </a>
+          <span class="text-slate-700">•</span>
+          <a href="https://n8n.io" target="_blank" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+            <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+            <span>Potenciado por n8n</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // State management
+    let allArticles = [];
+    let currentCategory = 'all';
+    let searchQuery = '';
+
+    // Category mapping for badge styles
+    const categoryConfig = {
+      'ia': { label: 'Inteligencia Artificial', badgeClass: 'badge-ia', icon: 'bot' },
+      'gaming': { label: 'Videojuegos', badgeClass: 'badge-gaming', icon: 'gamepad-2' },
+      'tecnologia': { label: 'Tecnología', badgeClass: 'badge-tecnologia', icon: 'cpu' },
+      'software': { label: 'Software & Dev', badgeClass: 'badge-software', icon: 'code-2' }
+    };
+
+    // Helper: Format Date
+    function formatDate(dateStr) {
+      if (!dateStr) return 'Reciente';
+      try {
+        const d = new Date(dateStr);
+        if (isNaN(d.getTime())) return dateStr;
+        return d.toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' });
+      } catch (e) {
+        return dateStr;
+      }
+    }
+
+    // Load News JSON
+    async function loadNews() {
+      const refreshIcon = document.getElementById('refresh-icon');
+      if (refreshIcon) refreshIcon.classList.add('animate-spin');
+
+      try {
+        // Cache buster parameter ensures fresh data
+        const res = await fetch(`./data/noticias.json?_t=${Date.now()}`);
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        
+        const data = await res.json();
+        
+        // Support both schema types: { noticias: [...] } or direct [...]
+        allArticles = Array.isArray(data) ? data : (data.noticias || data.articles || []);
+        
+        // Update header metadata
+        if (data.ultima_actualizacion) {
+          const updateDate = new Date(data.ultima_actualizacion);
+          document.getElementById('last-update').textContent = isNaN(updateDate) 
+            ? data.ultima_actualizacion 
+            : updateDate.toLocaleString('es-ES', { dateStyle: 'short', timeStyle: 'short' });
+        } else {
+          document.getElementById('last-update').textContent = new Date().toLocaleTimeString('es-ES');
+        }
+
+        if (data.agente) {
+          document.getElementById('agent-name').textContent = 'Activo (' + (data.agente.includes('Gemini') ? 'Gemini AI' : 'n8n') + ')';
+        }
+
+        document.getElementById('total-articles-count').textContent = allArticles.length;
+
+        renderApp();
+      } catch (err) {
+        console.error('Error loading news:', err);
+        showErrorState();
+      } finally {
+        if (refreshIcon) {
+          setTimeout(() => refreshIcon.classList.remove('animate-spin'), 500);
+        }
+      }
+    }
+
+    // Render entire view
+    function renderApp() {
+      // 1. Filter articles
+      const filtered = allArticles.filter(art => {
+        const matchCategory = (currentCategory === 'all') || (art.categoria_slug === currentCategory);
+        const query = searchQuery.toLowerCase().trim();
+        
+        if (!query) return matchCategory;
+
+        const matchQuery = 
+          (art.titulo && art.titulo.toLowerCase().includes(query)) ||
+          (art.resumen && art.resumen.toLowerCase().includes(query)) ||
+          (art.fuente_nombre && art.fuente_nombre.toLowerCase().includes(query)) ||
+          (Array.isArray(art.tags) && art.tags.some(t => t.toLowerCase().includes(query)));
+
+        return matchCategory && matchQuery;
+      });
+
+      // Update visible count
+      document.getElementById('visible-count').textContent = filtered.length;
+
+      // 2. Render Hero (Featured article)
+      const featured = filtered.find(a => a.destacada) || filtered[0];
+      renderHero(featured);
+
+      // 3. Render Grid (Excluding the hero if desired, or all remaining)
+      const gridArticles = filtered.filter(a => a !== featured);
+      renderGrid(gridArticles.length > 0 ? gridArticles : (filtered.length > 1 ? filtered : []));
+
+      // 4. Handle Empty state
+      const noResultsEl = document.getElementById('no-results');
+      const newsGridEl = document.getElementById('news-grid');
+      const featuredEl = document.getElementById('featured-container');
+
+      if (filtered.length === 0) {
+        noResultsEl.classList.remove('hidden');
+        newsGridEl.classList.add('hidden');
+        featuredEl.classList.add('hidden');
+      } else {
+        noResultsEl.classList.add('hidden');
+        newsGridEl.classList.remove('hidden');
+        featuredEl.classList.remove('hidden');
+      }
+
+      // Re-init lucide icons for newly rendered content
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    }
+
+    // Render Hero Card
+    function renderHero(article) {
+      const container = document.getElementById('featured-container');
+      if (!article) {
+        container.innerHTML = '';
+        return;
+      }
+
+      const catInfo = categoryConfig[article.categoria_slug] || { label: article.categoria || 'Tech', badgeClass: 'badge-tecnologia', icon: 'zap' };
+      const fallbackImg = 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80';
+      const imgSrc = article.imagen || fallbackImg;
+
+      container.innerHTML = `
+        <div class="relative rounded-3xl overflow-hidden border border-white/[0.1] bg-[#0c101a] group shadow-2xl">
+          <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[380px]">
+            
+            <!-- Image column -->
+            <div class="lg:col-span-7 relative h-64 lg:h-auto overflow-hidden">
+              <img 
+                src="${imgSrc}" 
+                alt="${article.titulo}"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                onerror="this.src='${fallbackImg}'"
+              >
+              <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-transparent via-[#0c101a]/60 to-[#0c101a]"></div>
+              
+              <!-- Floating Category Tag -->
+              <div class="absolute top-4 left-4 flex items-center space-x-2">
+                <span class="px-3 py-1 rounded-full text-xs font-semibold ${catInfo.badgeClass} backdrop-blur-md shadow-lg flex items-center gap-1.5">
+                  <i data-lucide="${catInfo.icon}" class="w-3.5 h-3.5"></i>
+                  ${catInfo.label}
+                </span>
+                <span class="px-2.5 py-1 rounded-full text-[11px] font-mono bg-red-500/20 text-red-300 border border-red-500/30 font-bold uppercase tracking-wider">
+                  Destacada
+                </span>
+              </div>
+            </div>
+
+            <!-- Content column -->
+            <div class="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between relative z-10 bg-[#0c101a]">
+              <div>
+                <div class="flex items-center space-x-3 text-xs text-slate-400 mb-3">
+                  <span class="flex items-center gap-1">
+                    <i data-lucide="calendar" class="w-3.5 h-3.5 text-slate-500"></i>
+                    ${formatDate(article.fecha)}
+                  </span>
+                  <span>•</span>
+                  <span class="flex items-center gap-1">
+                    <i data-lucide="clock" class="w-3.5 h-3.5 text-slate-500"></i>
+                    ${article.tiempo_lectura || '3 min'}
+                  </span>
+                  <span>•</span>
+                  <span class="text-emerald-400 font-medium">${article.fuente_nombre || 'Fuente Tech'}</span>
+                </div>
+
+                <h2 class="text-xl sm:text-2xl font-extrabold text-white leading-snug tracking-tight hover:text-emerald-300 transition-colors cursor-pointer" onclick="openArticleModal('${article.id}')">
+                  ${article.titulo}
+                </h2>
+
+                <p class="mt-3 text-sm text-slate-300 leading-relaxed line-clamp-3">
+                  ${article.resumen}
+                </p>
+
+                <!-- Tags -->
+                <div class="mt-4 flex flex-wrap gap-1.5">
+                  ${(article.tags || []).slice(0, 4).map(tag => `
+                    <span class="px-2 py-0.5 rounded-md text-[11px] font-mono bg-white/[0.04] text-slate-300 border border-white/[0.06]">
+                      #${tag}
+                    </span>
+                  `).join('')}
+                </div>
+              </div>
+
+              <!-- Action buttons -->
+              <div class="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between">
+                <button 
+                  onclick="openArticleModal('${article.id}')"
+                  class="inline-flex items-center space-x-2 text-xs font-semibold text-emerald-400 hover:text-emerald-300 group/btn transition-colors"
+                >
+                  <span>Leer síntesis completa</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5 transform group-hover/btn:translate-x-1 transition-transform"></i>
+                </button>
+
+                <a 
+                  href="${article.fuente_url}" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="p-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-slate-400 hover:text-white border border-white/[0.08] transition-colors"
+                  title="Abrir fuente original"
+                >
+                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      `;
+    }
+
+    // Render Grid Cards
+    function renderGrid(articles) {
+      const grid = document.getElementById('news-grid');
+      
+      if (!articles || articles.length === 0) {
+        grid.innerHTML = '';
+        return;
+      }
+
+      grid.innerHTML = articles.map(article => {
+        const catInfo = categoryConfig[article.categoria_slug] || { label: article.categoria || 'General', badgeClass: 'badge-tecnologia', icon: 'zap' };
+        const fallbackImg = 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80';
+        const imgSrc = article.imagen || fallbackImg;
+
+        return `
+          <article class="flex flex-col rounded-2xl overflow-hidden bg-[#0f1420] border border-white/[0.08] hover:border-emerald-500/30 hover:bg-[#131929] transition-all duration-300 group shadow-lg">
+            
+            <!-- Thumbnail Image -->
+            <div class="relative h-48 overflow-hidden bg-slate-900 cursor-pointer" onclick="openArticleModal('${article.id}')">
+              <img 
+                src="${imgSrc}" 
+                alt="${article.titulo}"
+                loading="lazy"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                onerror="this.src='${fallbackImg}'"
+              >
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0f1420] via-transparent to-transparent opacity-80"></div>
+              
+              <!-- Category Pill -->
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold ${catInfo.badgeClass} backdrop-blur-md flex items-center gap-1 shadow-sm">
+                  <i data-lucide="${catInfo.icon}" class="w-3 h-3"></i>
+                  ${catInfo.label}
+                </span>
+              </div>
+
+              <!-- Reading Time -->
+              <div class="absolute bottom-2.5 right-3 text-[11px] text-slate-300 font-mono bg-black/60 px-2 py-0.5 rounded backdrop-blur-sm">
+                ${article.tiempo_lectura || '3 min'}
+              </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                
+                <!-- Meta Info -->
+                <div class="flex items-center justify-between text-xs text-slate-400 mb-2.5">
+                  <span class="font-medium text-emerald-400 truncate max-w-[140px]">${article.fuente_nombre || 'Tech Source'}</span>
+                  <span>${formatDate(article.fecha)}</span>
+                </div>
+
+                <!-- Title -->
+                <h3 
+                  class="text-base font-bold text-white group-hover:text-emerald-300 transition-colors leading-snug line-clamp-2 cursor-pointer"
+                  onclick="openArticleModal('${article.id}')"
+                >
+                  ${article.titulo}
+                </h3>
+
+                <!-- Summary snippet -->
+                <p class="mt-2 text-xs text-slate-300 leading-relaxed line-clamp-3">
+                  ${article.resumen}
+                </p>
+
+              </div>
+
+              <!-- Tags and Footer -->
+              <div class="mt-4 pt-3 border-t border-white/[0.06]">
+                <div class="flex items-center justify-between">
+                  
+                  <div class="flex flex-wrap gap-1">
+                    ${(article.tags || []).slice(0, 2).map(tag => `
+                      <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/[0.03] text-slate-400 border border-white/[0.04]">
+                        #${tag}
+                      </span>
+                    `).join('')}
+                  </div>
+
+                  <div class="flex items-center space-x-1">
+                    <button 
+                      onclick="openArticleModal('${article.id}')" 
+                      class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 transition-colors"
+                    >
+                      Detalle
+                    </button>
+                    <a 
+                      href="${article.fuente_url}" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      class="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-white/[0.06] transition-colors"
+                      title="Ir a fuente original"
+                    >
+                      <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+          </article>
+        `;
+      }).join('');
+    }
+
+    // Open Article Detail Modal
+    window.openArticleModal = function(articleId) {
+      const article = allArticles.find(a => a.id === articleId);
+      if (!article) return;
+
+      const catInfo = categoryConfig[article.categoria_slug] || { label: article.categoria || 'General', badgeClass: 'badge-tecnologia', icon: 'zap' };
+      const fallbackImg = 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80';
+      const imgSrc = article.imagen || fallbackImg;
+
+      const modalContent = document.getElementById('article-modal-content');
+      modalContent.innerHTML = `
+        <div class="relative h-64 sm:h-72 overflow-hidden bg-slate-900">
+          <img src="${imgSrc}" alt="${article.titulo}" class="w-full h-full object-cover" onerror="this.src='${fallbackImg}'">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0f1420] via-black/40 to-transparent"></div>
+          
+          <button onclick="closeArticleModal()" class="absolute top-4 right-4 p-2 rounded-full bg-black/60 text-white hover:bg-black/90 transition-colors backdrop-blur-sm">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+
+          <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold ${catInfo.badgeClass} backdrop-blur-md flex items-center gap-1.5">
+              <i data-lucide="${catInfo.icon}" class="w-3.5 h-3.5"></i>
+              ${catInfo.label}
+            </span>
+            <span class="text-xs text-slate-300 font-mono bg-black/60 px-2.5 py-1 rounded-md backdrop-blur-sm">
+              ${formatDate(article.fecha)} • ${article.tiempo_lectura || '3 min'}
+            </span>
+          </div>
+        </div>
+
+        <div class="p-6 sm:p-8">
+          <div class="flex items-center space-x-2 text-xs text-emerald-400 font-semibold mb-2">
+            <i data-lucide="newspaper" class="w-3.5 h-3.5"></i>
+            <span>Fuente: ${article.fuente_nombre || 'Medio Tecnológico'}</span>
+          </div>
+
+          <h2 class="text-xl sm:text-2xl font-extrabold text-white leading-snug">
+            ${article.titulo}
+          </h2>
+
+          <div class="mt-4 p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-violet-400"></i>
+              Síntesis Inteligente (Gemini AI)
+            </h4>
+            <p class="text-sm text-slate-200 leading-relaxed">
+              ${article.resumen}
+            </p>
+          </div>
+
+          ${article.contenido_extendido ? `
+            <div class="mt-4">
+              <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Detalles Adicionales</h4>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                ${article.contenido_extendido}
+              </p>
+            </div>
+          ` : ''}
+
+          <!-- Tags -->
+          <div class="mt-6 pt-4 border-t border-white/[0.08] flex flex-wrap items-center justify-between gap-3">
+            <div class="flex flex-wrap gap-1.5">
+              ${(article.tags || []).map(t => `
+                <span class="px-2.5 py-1 rounded-lg text-xs font-mono bg-white/[0.04] text-slate-300 border border-white/[0.06]">
+                  #${t}
+                </span>
+              `).join('')}
+            </div>
+
+            <a 
+              href="${article.fuente_url}" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="inline-flex items-center space-x-2 px-4 py-2 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-colors shadow-lg shadow-emerald-500/20"
+            >
+              <span>Leer artículo original</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+
+        </div>
+      `;
+
+      document.getElementById('article-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+
+      if (window.lucide) lucide.createIcons();
+    };
+
+    window.closeArticleModal = function() {
+      document.getElementById('article-modal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    };
+
+    // Error State
+    function showErrorState() {
+      const grid = document.getElementById('news-grid');
+      grid.innerHTML = `
+        <div class="col-span-full py-16 text-center">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400">
+            <i data-lucide="alert-triangle" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white">Error al sincronizar con el feed</h3>
+          <p class="text-sm text-slate-400 mt-1 max-w-md mx-auto">
+            No se pudo leer el archivo de noticias JSON. Asegúrate de que el archivo existe en el repositorio o recarga la página.
+          </p>
+          <button onclick="loadNews()" class="mt-4 px-4 py-2 text-xs font-semibold rounded-xl bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-colors">
+            Reintentar sincronización
+          </button>
+        </div>
+      `;
+      if (window.lucide) lucide.createIcons();
+    }
+
+    // Set up listeners on DOM load
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // Category buttons
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          document.querySelectorAll('.category-btn').forEach(b => {
+            b.classList.remove('active', 'bg-emerald-500', 'text-slate-950', 'shadow-md', 'shadow-emerald-500/20');
+            b.classList.add('bg-white/[0.05]', 'text-slate-300', 'border', 'border-white/[0.08]');
+          });
+
+          btn.classList.add('active', 'bg-emerald-500', 'text-slate-950', 'shadow-md', 'shadow-emerald-500/20');
+          btn.classList.remove('bg-white/[0.05]', 'text-slate-300', 'border-white/[0.08]');
+
+          currentCategory = btn.getAttribute('data-category');
+          
+          // Update status text
+          const catLabels = {
+            'all': '(Todas las categorías)',
+            'ia': '(Inteligencia Artificial)',
+            'gaming': '(Videojuegos)',
+            'tecnologia': '(Hardware & Tecnología)',
+            'software': '(Software & Dev)'
+          };
+          document.getElementById('filter-status-text').textContent = catLabels[currentCategory] || '';
+
+          renderApp();
+        });
+      });
+
+      // Search Inputs (Desktop & Mobile)
+      const searchInput = document.getElementById('search-input');
+      const searchInputMobile = document.getElementById('search-input-mobile');
+      const clearSearchBtn = document.getElementById('clear-search');
+
+      function handleSearch(val) {
+        searchQuery = val;
+        if (val.length > 0) {
+          clearSearchBtn.classList.remove('hidden');
+        } else {
+          clearSearchBtn.classList.add('hidden');
+        }
+        renderApp();
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => handleSearch(e.target.value));
+      }
+      if (searchInputMobile) {
+        searchInputMobile.addEventListener('input', (e) => handleSearch(e.target.value));
+      }
+
+      if (clearSearchBtn) {
+        clearSearchBtn.addEventListener('click', () => {
+          if (searchInput) searchInput.value = '';
+          if (searchInputMobile) searchInputMobile.value = '';
+          handleSearch('');
+        });
+      }
+
+      // Reset filters button
+      const resetBtn = document.getElementById('reset-filter-btn');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          if (searchInput) searchInput.value = '';
+          if (searchInputMobile) searchInputMobile.value = '';
+          searchQuery = '';
+          currentCategory = 'all';
+          document.querySelector('[data-category="all"]').click();
+        });
+      }
+
+      // Refresh Button
+      const refreshBtn = document.getElementById('refresh-btn');
+      if (refreshBtn) {
+        refreshBtn.addEventListener('click', () => loadNews());
+      }
+
+      // Architecture Modal
+      const archModal = document.getElementById('arch-modal');
+      const openArchBtn = document.getElementById('open-arch-btn');
+      const closeArchBtn = document.getElementById('close-arch-btn');
+      const closeArchBtnFooter = document.getElementById('close-arch-btn-footer');
+      const closeArchBackdrop = document.getElementById('close-arch-backdrop');
+
+      function openArch() {
+        archModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeArch() {
+        archModal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }
+
+      if (openArchBtn) openArchBtn.addEventListener('click', openArch);
+      if (closeArchBtn) closeArchBtn.addEventListener('click', closeArch);
+      if (closeArchBtnFooter) closeArchBtnFooter.addEventListener('click', closeArch);
+      if (closeArchBackdrop) closeArchBackdrop.addEventListener('click', closeArch);
+
+      // Article Modal Backdrop
+      const closeArticleBackdrop = document.getElementById('close-article-backdrop');
+      if (closeArticleBackdrop) {
+        closeArticleBackdrop.addEventListener('click', window.closeArticleModal);
+      }
+
+      // Global ESC key listener to close modals
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeArch();
+          window.closeArticleModal();
+        }
+      });
+
+      // Initial Fetch
+      loadNews();
+    });
+  </script>
+</body>
+</html>
