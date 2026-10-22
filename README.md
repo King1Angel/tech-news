@@ -1,11 +1,11 @@
 # 🦒 GiraTek Feed — Portal de Noticias Autónomo
 
 <p align="center">
-  <img src="./assets/giratek-logo.jpg" alt="GiraTek Logo" width="180" style="border-radius: 24px; box-shadow: 0 10px 30px rgba(6,182,212,0.3);" />
+  <img src="./assets/giratek-logo.jpg" alt="GiraTek Logo" width="240" style="border-radius: 28px; box-shadow: 0 12px 35px rgba(16,185,129,0.35); border: 2px solid rgba(16,185,129,0.4);" />
 </p>
 
 > **GiraTek: Portal automatizado de noticias sobre Inteligencia Artificial, Videojuegos y Tecnología.**  
-> Curado y sintetizado automáticamente por un agente en **n8n** potenciado por **Google Gemini AI**, desplegado en **GitHub Pages** con costo de infraestructura \$0.
+> Curado y sintetizado automáticamente por un agente en **n8n** potenciado por **Google Gemini AI**, con enlaces de fuente directa 100% verificados (0% errores 404), desplegado en **GitHub Pages** con costo de infraestructura $0.
 
 🌐 **Sitio Web en Vivo:** [https://king1angel.github.io/tech-news/](https://king1angel.github.io/tech-news/)  
 👤 **Autor:** [Ing. Angel Peña](https://github.com/King1Angel)
