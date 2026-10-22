@@ -1,7 +1,7 @@
 # 🦒 GiraTek Feed — Portal de Noticias Autónomo
 
 <p align="center">
-  <img src="./assets/giratek-logo.jpg" alt="GiraTek Logo" width="240" style="border-radius: 28px; box-shadow: 0 12px 35px rgba(16,185,129,0.35); border: 2px solid rgba(16,185,129,0.4);" />
+  <img src="./assets/giratek-logo-v3.jpg?v=3" alt="GiraTek Logo" width="240" style="border-radius: 28px; box-shadow: 0 12px 35px rgba(16,185,129,0.35); border: 2px solid rgba(16,185,129,0.4);" />
 </p>
 
 > **GiraTek: Portal automatizado de noticias sobre Inteligencia Artificial, Videojuegos y Tecnología.**  
